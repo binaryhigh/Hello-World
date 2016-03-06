@@ -1,0 +1,21 @@
+/* Printing first 6 terms of Fibonacci numbers below - in case you want more terms to be printed, change the code on line 8 in the for loop condition for Total_Terms < 'insert the number of desired terms here'   */
+#include<stdio.h>
+
+int main()
+{
+   int Term1 = 0, Term2 = 1, Term3, Total_Terms; /*this represents progressive sequence of consecutive integers or terms in Fibonacci series*/
+
+   for ( Total_Terms = 0; Total_Terms <6; Total_Terms++ ) /*since the Week 2 assignment asks for eliminating first 2 terms, that is 0 and 1, I needed to start the series from 1*/
+   {
+      if ( Total_Terms <= 1 )
+         Term3 = Total_Terms; /* Fibonacci series does not work with less than 3 terms*/
+      else
+      {
+         Term3 = Term1 + Term2; /*these 3 lines from 14 to 16, create a recursive relationship of first, second and 3rd terms of the series (3rd term is summation of previous 2 terms), forcing the loop to run through the sequence*/
+         Term1 = Term2;
+         Term2 = Term3;
+      }
+      printf("%d\n",Term3); /*this prints out 4 digits after 0 and 1*/
+   }
+   return 0;
+}
